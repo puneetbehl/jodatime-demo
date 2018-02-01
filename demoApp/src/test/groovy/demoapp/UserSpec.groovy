@@ -16,7 +16,7 @@ class UserSpec extends Specification implements DomainUnitTest<User> {
     void "test joda time property on persistentEntity"() {
 		when:
 		assert domain.properties != null
-        PersistentEntity persistentEntity = Holders.grailsApplication.mappingContext.getPersistentEntity(domain.class.getName())
+        PersistentEntity persistentEntity = User.gormPersistentEntity
 		
         then: "Joda property found on persistent entity"
         persistentEntity.hasProperty('dateOfBirth', LocalDate) != null
